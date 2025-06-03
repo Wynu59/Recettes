@@ -7,24 +7,69 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#" data-page="recipes" class="active">Mes recettes</a></li>
+            <li><a href="#" data-page="search">Chercher une recette</a></li>
+            <li><a href="#" data-page="add">Ajouter une recette</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <h1>Mes Recettes</h1>
-        <form id="recipe-form">
-            <h2>Ajouter une recette</h2>
-            <label for="title">Titre :</label>
-            <label for="ingredients">Ingrédients (séparés par des virgules) :</label>
-            <input type="text" id="ingredients" required>
-            <label for="instructions">Instructions :</label>
-            <textarea id="instructions" rows="4" required></textarea>
-            <button type="submit">Ajouter</button>
-        </form>
+        <section id="recipes-page" class="page active">
+            <h1>Mes Recettes</h1>
+            <div id="random-menu" class="random-menu"></div>
+            <div class="view-controls">
+                <button id="list-view">Vue liste</button>
+                <button id="grid-view">Vue grille</button>
+                <select id="category-filter">
+                    <option value="">Toutes les catégories</option>
+                    <option value="entree">Entrée</option>
+                    <option value="plat">Plat</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+            </div>
+            <div id="recipe-container" class="list"></div>
+        </section>
 
-        <div class="filter">
-            <label for="search">Filtrer par ingrédient :</label>
-            <input type="text" id="search" placeholder="Ex: sucre">
-        </div>
+        <section id="search-page" class="page hidden">
+            <h1>Chercher une recette</h1>
+            <form id="search-form">
+                <label for="ingredient-search">Ingrédients (séparés par virgules)</label>
+                <input type="text" id="ingredient-search" list="ingredient-list">
+                <datalist id="ingredient-list"></datalist>
+            </form>
+            <div id="search-results"></div>
+        </section>
 
-        <ul id="recipe-list"></ul>
+        <section id="add-page" class="page hidden">
+            <h1>Ajouter une recette</h1>
+            <form id="add-form">
+                <label for="add-title">Titre</label>
+                <input type="text" id="add-title" required>
+
+                <label for="add-image">Image (URL)</label>
+                <input type="url" id="add-image">
+
+                <label for="add-image-file">Ou télécharger une image</label>
+                <input type="file" id="add-image-file" accept="image/*">
+
+                <label for="add-category">Catégorie</label>
+                <select id="add-category">
+                    <option value="entree">Entrée</option>
+                    <option value="plat">Plat</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+
+                <label for="add-ingredients">Ingrédients (séparés par virgules)</label>
+                <input type="text" id="add-ingredients" list="ingredient-list" required>
+
+                <label for="add-steps">Étapes de préparation</label>
+                <textarea id="add-steps" rows="4" required></textarea>
+
+                <button type="submit">Ajouter</button>
+            </form>
+        </section>
     </div>
 
     <script src="script.js"></script>
