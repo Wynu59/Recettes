@@ -6,8 +6,32 @@ body {
     background-color: #f2f2f2;
 }
 
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+nav li {
+    flex: 1;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+nav a.active {
+    background-color: #4CAF50;
+}
+
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -47,7 +71,42 @@ button:hover {
     background-color: #45a049;
 }
 
-.filter {
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.view-controls {
+    margin-bottom: 10px;
+}
+
+#recipe-container.list .recipe-card {
+    margin-bottom: 20px;
+}
+
+#recipe-container.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#recipe-container.grid .recipe-card {
+    flex: 1 0 30%;
+    box-sizing: border-box;
+}
+
+.recipe-card img {
+    max-width: 100%;
+    display: block;
+}
+
+.random-menu {
+    background-color: #eee;
+    padding: 10px;
     margin-bottom: 20px;
 }
 
